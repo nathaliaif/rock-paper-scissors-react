@@ -1,0 +1,193 @@
+@use 'variables';
+@use 'mixins';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: variables.$font-family;
+}
+
+body {
+    /* padding: 2.5rem 2rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    background: rgb(31,55,86);
+    background: linear-gradient(180deg, rgba(31,55,86,1) 0%, rgba(20,21,57,1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Header */
+
+header {
+    margin: 2.5rem 2rem 0 2rem;
+    padding: 1rem 1rem 1rem 2rem;
+    border: 3px solid variables.$header-outline;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__title {
+    width: 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.3rem;
+    color: white;
+}
+
+.header-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem;
+    width: 6.5rem;
+    background: white;
+    border-radius: 8px;
+}
+
+.score__title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: variables.$score-text;
+}
+
+.score__text {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3rem;
+    color: variables.$dark-text;
+}
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem 0 2rem;
+    row-gap: 2rem;
+    width: 100%;
+    height: 70%;
+}
+
+.main__first-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.main__second-row {
+    display: flex;
+    justify-content: center;
+}
+
+.button-hand {
+    position: relative;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 70px;
+    border: none;
+    z-index: 5;
+}
+
+.button-paper {
+    @include mixins.button-bg;
+}
+
+.button-scissors {
+    @include mixins.button-bg($main-color: variables.$scissors-color)
+}
+
+.button-rock {
+    @include mixins.button-bg($main-color: variables.$rock-color)
+}
+
+.button-bg {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 7rem;
+    height: 7rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 70px;
+    overflow: hidden;
+    background: variables.$inner-shadow;
+    z-index: 3;
+    box-shadow: inset 0 7px 0 0 grey;
+}
+
+.button-hand img {
+    position: relative;
+    z-index: 10;
+}
+
+.triangle {
+    position: absolute;
+    -webkit-text-stroke: 15px black;
+    opacity: .2;
+    color: transparent;
+    font-size: 250px;
+    align-self: center;
+    scale: -1;
+    z-index: -1;
+}
+
+.rules {
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.8rem 2.5rem;
+    width: 10rem;
+    margin-bottom: 3rem;
+
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: white;
+
+    border: 1px solid variables.$header-outline;
+    border-radius: 8px;
+    background: transparent;
+
+    transition: .3s;
+
+    &:hover {
+        cursor: pointer;
+        background: variables.$header-outline;
+        color: black;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    border-top: 2px solid variables.$header-outline;
+    text-align: center;
+    background: transparent;
+    color: variables.$header-outline;
+    font-size: 1.2rem;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        filter: brightness(65%);
+    }
+}
+
+
+

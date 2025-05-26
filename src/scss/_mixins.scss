@@ -1,0 +1,8 @@
+@use 'variables';
+@use "sass:color";
+
+@mixin button-bg($main-color: variables.$paper-color){
+    background: linear-gradient(0deg, $main-color 0%, color.scale($color: $main-color, $lightness: -9.5864661654%) 100%);
+    box-shadow: 0 7px 0 0 color.scale($color: $main-color, $lightness: -9.5864661654%), 
+                0 10px 6px 0 rgba(0, 0, 0, .4);
+}
