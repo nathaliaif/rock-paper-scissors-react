@@ -1,7 +1,10 @@
-function Game() {
-  let chosenHand: string = "";
-  const handleClick = (hand) => {
-    chosenHand = hand;
+type GameProps = {
+  userHand: (hand: string) => void;
+};
+
+function Game({ userHand }: GameProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    userHand(e.currentTarget.id);
   };
 
   return (
@@ -10,7 +13,7 @@ function Game() {
         <div className="main__first-row">
           <button
             className="button-hand button-paper"
-            onClick={() => handleClick("paper")}
+            onClick={handleClick}
             id="paper"
           >
             <div className="button-bg">
@@ -19,7 +22,7 @@ function Game() {
           </button>
           <button
             className="button-hand button-scissors"
-            onClick={() => handleClick("scissors")}
+            onClick={handleClick}
             id="scissors"
           >
             <div className="button-bg">
@@ -30,7 +33,7 @@ function Game() {
         <div className="main__second-row">
           <button
             className="button-hand button-rock"
-            onClick={() => handleClick("rock")}
+            onClick={handleClick}
             id="rock"
           >
             <div className="button-bg">

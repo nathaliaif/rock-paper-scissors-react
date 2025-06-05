@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom"
 import Header from './components/Header'
 import Footer from './components/Footer'
+import './scss/styles.scss'
  
 export function Layout() {
     return (
         <>
-            <Header />
+            <Header Score={10} />
             <main>
                 <Outlet />
             </main>
