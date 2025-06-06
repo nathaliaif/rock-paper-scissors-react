@@ -1,10 +1,11 @@
-type GameProps = {
-  userHand: (hand: string) => void;
-};
+import { useNavigate } from "react-router";
 
-function Game({ userHand }: GameProps) {
+function Game() {
+  const navigate = useNavigate();
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    userHand(e.currentTarget.id);
+    const hand = e.currentTarget.id;
+    navigate("/result", { state: hand });
   };
 
   return (
@@ -43,7 +44,6 @@ function Game({ userHand }: GameProps) {
         </div>
         <div className="triangle">&#9650;</div>
       </main>
-      <button className="rules">Rules</button>
     </>
   );
 }
