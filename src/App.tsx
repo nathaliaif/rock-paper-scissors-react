@@ -2,20 +2,23 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Result from "./pages/result";
 import { Layout } from "./Layout";
+import { ScoreContext } from "./components/ScoreContext";
 
 // Represents the application itself
 // If we want to have multiple pages, we should treat the App.tsx the place that houses all of our pages
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/result" element={<Result />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ScoreContext>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/result" element={<Result />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ScoreContext>
 
     // <BrowserRouter>
     //   <Routes>
@@ -25,5 +28,3 @@ function App() {
     // </BrowserRouter>
   );
 }
-
-export default App;

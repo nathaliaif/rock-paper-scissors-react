@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useScore } from "../components/ScoreContext";
 
 const hands = ["rock", "paper", "scissors"];
 
@@ -18,11 +19,10 @@ export default function Result() {
 
   const [houseHand, setHouseHand] = useState("empty");
   const [gameResult, setGameResult] = useState("");
+  const { score, setScore } = useScore();
 
   function checkWinner(user: string, house: string): void {
     const currentGame = [user, house];
-    console.log(user);
-    console.log(house);
 
     if (user === house) {
       setGameResult("It's a tie");
@@ -36,8 +36,12 @@ export default function Result() {
 
     if (isUserWinner) {
       setGameResult("You win");
+      setScore(score + 1);
     } else {
       setGameResult("You lose");
+      if (score > 0) {
+        // setScore(score - 1);
+      }
     }
   }
 
@@ -48,7 +52,7 @@ export default function Result() {
     const timeoutId = setTimeout(() => {
       setHouseHand(houseChoice);
       checkWinner(userHand, houseChoice);
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(timeoutId);

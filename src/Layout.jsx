@@ -6,7 +6,7 @@ import './scss/styles.scss'
 export function Layout() {
     return (
         <>
-            <Header Score={10} />
+            <Header />
             <main>
                 <Outlet />
             </main>
