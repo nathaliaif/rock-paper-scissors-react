@@ -18,7 +18,7 @@ export default function Result() {
   const userHand = state;
 
   const [houseHand, setHouseHand] = useState("empty");
-  const [gameResult, setGameResult] = useState("");
+  const [gameResult, setGameResult] = useState("No winners");
   const { score, setScore } = useScore();
 
   function checkWinner(user: string, house: string): void {
