@@ -128,6 +128,7 @@ main {
     background: variables.$inner-shadow;
     z-index: 3;
     box-shadow: inset 0 7px 0 0 grey;
+    transition: 0.5s ease-in-out;
 }
 
 .button-empty .button-bg {
@@ -149,6 +150,8 @@ main {
 .button-hand img {
     position: relative;
     z-index: 10;
+    display: block;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .triangle {
@@ -236,15 +239,20 @@ footer {
 }
 
 .final-result-container {
-    visibility: visible;
+    opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 1rem;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .final-result-container[state="empty"] {
-    visibility: hidden;
+    opacity: 0;
+}
+
+.result-individual .button-bg {
+    transition: opacity 0.5s ease-in-out;
 }
 
 .result-text {
@@ -556,9 +564,20 @@ footer {
         }
     }
 
+    .button-hand {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 70px;
+    }
+
+    .button-bg {
+        width: 6rem;
+        height: 6rem;
+    }
+
     .triangle {
-    font-size: 300px;
-}
+        font-size: 300px;
+    }
 
     .rules {
         position: absolute;
