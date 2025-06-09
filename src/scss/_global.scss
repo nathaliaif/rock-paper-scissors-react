@@ -247,7 +247,7 @@ footer {
     transition: opacity 0.5s ease-in-out;
 }
 
-.final-result-container[state="empty"] {
+.final-result-container[data-state="empty"] {
     opacity: 0;
 }
 

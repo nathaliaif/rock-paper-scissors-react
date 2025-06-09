@@ -92,7 +92,7 @@ export default function Result() {
           <p className="result-choice-text">The house picked</p>
         </div>
       </div>
-      <div className="final-result-container" state={houseHand}>
+      <div className="final-result-container" data-state={houseHand}>
         <p className="result-text">{gameResult}</p>
         <button className="play-again-button" onClick={() => navigate("/")}>
           Play again

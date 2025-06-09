@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom"
-import Game from '../components/Game'
-import { useState, useEffect } from 'react';
-import Result from "./result";
+import Game from "../components/Game";
 
 export default function Home() {
-    return (
-        <div className="home-container">
-            <Game />
-        </div>
-    )
+  return (
+    <div className="home-container">
+      <Game />
+    </div>
+  );
 }

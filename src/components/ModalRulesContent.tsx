@@ -1,13 +1,18 @@
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function ModalRulesContent({ onClose }) {
+// Define props type
+type ModalRulesContentProps = {
+  onClose: () => void;
+};
+
+export default function ModalRulesContent({ onClose }: ModalRulesContentProps) {
   const [modalState, setModalState] = useState("");
 
   useEffect(() => {
     setModalState("show");
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeAnimation();
       }

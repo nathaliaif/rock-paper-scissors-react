@@ -1,12 +1,22 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
+
+// Defining the context value
+type ScoreContextType = {
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const Context = createContext<ScoreContextType | undefined>(undefined);
 
 export function useScore() {
-  return useContext(Context);
+  const context = useContext(Context);
+  if (!context) {
+    throw new Error("useScore must be used within a ScoreProvider");
+  }
+  return context;
 }
 
-const Context = createContext({});
-
-export const ScoreContext = ({ children }) => {
+export const ScoreContext = ({ children }: { children: ReactNode }) => {
   const [score, setScore] = useState(0);
 
   return (
