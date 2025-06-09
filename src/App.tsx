@@ -1,7 +1,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import Result from "./pages/result";
-import { Layout } from "./Layout";
+import Result from "./pages/result.tsx";
+import Layout from "./Layout";
 import { ScoreContext } from "./components/ScoreContext";
 
 // Represents the application itself

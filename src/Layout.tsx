@@ -6,7 +6,7 @@ import { useState } from "react"
 import { createPortal } from 'react-dom';
 import ModalRulesContent from './components/ModalRulesContent';
  
-export function Layout() {
+export default function Layout() {
     const [showModal, setShowModal] = useState(false);
 
     return (

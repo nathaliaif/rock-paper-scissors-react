@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { useScore } from "./ScoreContext";
 
 function Header() {
